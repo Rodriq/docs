@@ -1,4 +1,4 @@
-# App lifecycle
+# App Lifecycle
 
 ## Introduction
 
@@ -30,7 +30,7 @@ public async initialize(configurationExtend: IConfigurationExtend, environmentRe
 }
 ```
 
-This method allows the App to control its internal initialization process, overriding the default one. 
+This method allows the App to control its internal initialization process, overriding the default one.
 
 ### `extendConfiguration`
 

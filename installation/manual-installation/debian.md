@@ -16,7 +16,7 @@ sudo apt-get -y update
 ```
 
 ```bash
-sudo apt-get install -y dirmngr && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+sudo apt-get install -y dirmngr gnupg && sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 ```
 
 ```bash
@@ -35,7 +35,7 @@ Install build tools, MongoDB, nodejs and graphicsmagick:
 sudo apt-get install -y build-essential mongodb-org nodejs graphicsmagick
 ```
 
-Using npm install inherits and n, and the node version requiere by Rocket.Chat:
+Using npm install inherits and n, and the node version required by Rocket.Chat:
 
 ```bash
 sudo npm install -g inherits n && sudo n 12.14.0
@@ -104,7 +104,7 @@ PORT=3000
 Setup storage engine and replication for MongoDB \(mandatory for versions &gt; 1\), and enable and start MongoDB and Rocket.Chat:
 
 ```bash
-sudo sed -i "s/^#  engine:/  engine: mmapv1/"  /etc/mongod.conf
+sudo sed -i "s/^#  engine:/  engine: wiredTiger/"  /etc/mongod.conf
 ```
 
 ```bash

@@ -1,14 +1,16 @@
-# Docker Containers
+---
+description: Docker-Ubuntu 16.04 LTS (64 bit) VPS with Nginx SSL and Hubot
+---
 
-Docker-Ubuntu 16.04 LTS \(64 bit\) VPS with Nginx SSL and Hubot
+# Docker Containers
 
 ## Introduction
 
-This guide will walk you through installation and configuration of a Docker based Rocket Chat instance on Ubuntu 16.04 LTS \(64 bit\) VPS, using Nginx as a reverse SSL proxy, Hubot chatbot, and necessary scripts for automatic restart and crash recovery.
+This guide will walk you through the installation and configuration of a Docker-based Rocket.Chat instance on Ubuntu 16.04 LTS \(64 bit\) VPS, using Nginx as a reverse SSL proxy, Hubot chatbot, and necessary scripts for an automatic restart and crash recovery.
 
-For people new to docker here's a quick primer: Docker is a program to allow other programs and their dependencies to be run in a type of virtual container. Using this deployment guide, you do not need to download any of the rocket chat program files manually whatsoever. Docker will get everything that is needed for Rocket Chat to run. If you follow this guide closely, it provides everything from start to finish needed to install, create, and run your own Rocket Chat web instance with nginx handling SSL termination, and a Hubot chatbot keeping your general chat channel warm on those cold winter mornings.
+For people new to docker here's a quick primer: Docker is a program to allow other programs and their dependencies to be run in a type of virtual container. Using this deployment guide, you do not need to download any of the rocket chat program files manually whatsoever. Docker will get everything that is needed for Rocket.Chat to run. If you follow this guide closely, it provides everything from start to finish needed to install, create, and run your own Rocket.Chat web instance with Nginx handling SSL termination, and a Hubot chatbot keeping your general chat channel warm on those cold winter mornings.
 
-This guide is designed for everyone, however, it is intentionally detailed to help new users who may need a little extra guidance. If you're experienced with things like docker, nginx, etc. you may prefer one of the other deployment guides found elsewhere on this wiki.
+This guide is designed for everyone, however, it is intentionally detailed to help new users who may need a little extra guidance. If you're experienced with things like docker, Nginx, etc. you may prefer one of the other deployment guides found elsewhere on this wiki.
 
 ## What we'll cover in this guide
 
@@ -233,8 +235,8 @@ Delete the example in this file, and paste in the following:
             proxy_set_header Connection "upgrade";
             proxy_set_header Host $http_host;
             proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forward-Proto http;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto https;
             proxy_set_header X-Nginx-Proxy true;
             proxy_redirect off;
         }
@@ -361,7 +363,7 @@ sudo docker ps -a
 [![docker ps -a](https://www.imageforge.us/images/c90bd55a7b357c20b18815a5560f43f3.png)](https://www.imageforge.us/image/60kNT)
 ```
 
-As you can see, our three docker containers are up and running: Rocket Chat, MongoDB, and Hubot. NOTE: You may see only one, or none at all if the downloads are still in progress. Be patient, and check it periodically. Eventually, it should look similar to our sample screenshot. If it does, congratulations, you did it! GREAT JOB!
+As you can see, our three docker containers are up and running: Rocket.Chat, MongoDB, and Hubot. NOTE: You may see only one, or none at all if the downloads are still in progress. Be patient, and check it periodically. Eventually, it should look similar to our sample screenshot. If it does, congratulations, you did it! GREAT JOB!
 
 Next, let's try opening the web browser and going to your new chat room. Provided that your DNS is properly configured, you should be able to simply type your chatroom URL into the browser and open it up.
 
@@ -387,7 +389,7 @@ http://chat.inumio.com:3000
 
 **PROBLEM?** See [Section 10: Troubleshooting](./#10-troubleshooting--faq)
 
-Once you've successfully reached your chat room login page, you need to register your admin account. By default, the first account to register on Rocket Chat becomes the admin, so if your chat room is public, do this immediately in order to prevent someone else from registering and becoming the administrator.
+Once you've successfully reached your chat room login page, you need to register your admin account. By default, the first account to register on Rocket.Chat becomes the admin, so if your chat room is public, do this immediately in order to prevent someone else from registering and becoming the administrator.
 
 _Great! I'm in, but the bot is nowhere to be seen!_
 
@@ -461,11 +463,11 @@ cd /var/www/rocket.chat
 /usr/local/bin/docker-compose up
 ```
 
-If docker-compose doesn't throw an error, and instead launches the job, then the problem is possibly in the upstart script.
+If docker-compose doesn't throw an error and instead launches the job, then the problem is possibly in the upstart script.
 
 **PROBLEM:** _When I upload a file the server crashes!_
 
-**POSSIBLE SOLUTION:** If you're running low on system resources, such as RAM, this can cause problems with not just performance, but stability. Make sure that you're not running out of memory, or have any other choke points, like not enough CPU, etc. One way to check, is to issue the following command via SSH \(or console\) which runs TOP, a utility that will show valuable information about system resources and processes.
+**POSSIBLE SOLUTION:** If you're running low on system resources, such as RAM, this can cause problems with not just performance, but stability. Make sure that you're not running out of memory, or have any other choke points, like not enough CPU, etc. One way to check is to issue the following command via SSH \(or console\) which runs TOP, a utility that will show valuable information about system resources and processes.
 
 ```text
 sudo top

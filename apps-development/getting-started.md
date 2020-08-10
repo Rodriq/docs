@@ -1,5 +1,11 @@
 # Getting Started
 
+## What is a Rocket.Chat App?
+
+A Rocket.Chat App is an integration or a plugin which is created in an isolated environment. You can also create your own App and publish it on our official [Marketplace](https://rocket.chat/marketplace) to share with the world. Users can download your application from the marketplace and use it.
+
+Below are a few guides which will help you get started with Rocket.Chat App CLI to create and publish your own applications.
+
 Rocket.Chat provides an Apps Engine CLI which helps you easily create, deploy, and publish your own extensions for it. This guide will help you get started with the CLI to start creating your own apps.
 
 ## Rocket.Chat App Engine CLI
@@ -118,6 +124,8 @@ export class LiftoffCommand implements ISlashCommand {
 }
 ```
 
+> You can learn more about organising complex slash commands in our [Sub-command pattern](recipes/sub-command-pattern.md) recipe
+
 #### Registering the slashcommand
 
 After adding our slashcomamnd logic, we have to register the slashcommand in out app by extending its configuration:
@@ -162,7 +170,7 @@ Now that you have your App ready, you can test it before submitting it.
 
 To test your app, you need a Rocket.Chat server running locally on your machine and an admin user in it.
 
-See [Installing Rocket.Chat for Developing](../quick-start.md) to run Rocket.Chat in develop mode. Enable Apps development mode by navigating to `Administration > General` then scroll down to Apps and click on the `True` radio button over the Enable development mode.
+See [Installing Rocket.Chat for Developing](https://github.com/RocketChat/docs/tree/ec114736ec53cc927e2cbddeddbe07b652e2b70f/quick-start.md) to run Rocket.Chat in develop mode. Enable Apps development mode by navigating to `Administration > General` then scroll down to Apps and click on the `True` radio button over the Enable development mode.
 
 or run it in preview mode with docker using the command:
 
@@ -184,7 +192,7 @@ Where:
 
 `user_password` is the password of your admin user.
 
-If you want to update the app deployed in your Rocket.Chat instance after making changes to it, you can run: 
+If you want to update the app deployed in your Rocket.Chat instance after making changes to it, you can run:
 
 ```text
 rc-apps deploy --url http://localhost:3000 --username user_username --password user_password --update
