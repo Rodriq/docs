@@ -61,7 +61,7 @@ Application for technical writers has opened. Please use this [form](https://for
 
 * **Mentors**: @markus.kirsch @rodrigok
 * **Description**: We at Rocket.Chat take pride in taking extra efforts in providing a true open source and secure messaging solution. Transparency and trust are key features of our products. This is an exciting opportunity to work with our team of experts to create a comprehensive documentation of the security features of Rocket.Chat and create implementation guides for configuring Rocket.Chat to follow compliance regimes such as GDPR, HIPAA and NIST. The focus is on creating a new set of documentation based on the existing material and new features that since have been deployed.
-* **Related Material**: [Rocket.Chat Security Overview](https://docs.rocket.chat/contributing/security/), [Rocket.Chat GDPR features](https://rocket.chat/2018/05/20/gdpr/)
+* **Related Material**: [Rocket.Chat Security Overview](https://docs.rocket.chat/contributing/security/), [Rocket.Chat GDPR features](https://docs.rocket.chat/legal/gdpr)
 
 ### Android Kotlin Software Development Kit \(Kotlin SDK\) documentation
 
@@ -91,7 +91,7 @@ Application for technical writers has opened. Please use this [form](https://for
 
 * **Mentors**: @d-gubert @rodrigok
 * **Description**: The Apps-Engine is a framework that enables developers to integrate new functionality to Rocket.Chat without having to deep dive in the code base, and makes it possible to distribute your Rocket.Chat Apps to the wide community of users! And in order to improve the developer experience when making those apps, we need to improve our docs so they guide people smoothly through the available features. You will be working with Rocket.Chat Apps leads to extend the guides and docs that already exist, focusing on the DX of the community.
-* **Related Material**: [Getting Started with Rocket.Chat Apps](https://docs.rocket.chat/developer-guides/developing-apps/getting-started/), [Rocket.Chat Apps-Engine API Reference](https://rocketchat.github.io/Rocket.Chat.Apps-engine/)
+* **Related Material**: [Getting Started with Rocket.Chat Apps](https://docs.rocket.chat/guides/developer/mobile-apps), [Rocket.Chat Apps-Engine API Reference](https://rocketchat.github.io/Rocket.Chat.Apps-engine/)
 
 ### JS SDK documentation
 
